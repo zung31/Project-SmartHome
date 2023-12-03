@@ -1,0 +1,71 @@
+<html>
+<head>
+    <title>Rechercher Information</title>
+    <link rel="stylesheet" href="style7.css">
+</head>
+<body>
+    <div class="hero">
+        <form name="search" action="handle_search.php" method="POST">
+            <div class="selector">
+                <div id="selectField">
+                    <p id="selectText">Select Device   </p>
+                    <img src="img7/arrow.png" id="arrowIcon">
+                </div>
+                <div class="selector-btn-wrapper">
+                    <button type="submit" name="search"><span></span>SEARCH</button>
+                </div>
+
+                <ul id="list" class="hide">
+                    <li class="options">
+                        <p>Camera</p>
+                    </li>
+                    <li class="options">
+                        <p>Light</p>
+                    </li>
+                    <li class="options">
+                        <p>Curtain</p>
+                    </li>
+                    <li class="options">
+                        <p>Capteur Ouvert Porte</p>
+                    </li>
+                    <li class="options">
+                        <p>Capteur Temperature</p>
+                    </li>
+                    <li class="options">
+                        <p>Detecteur Fumee</p>
+                    </li>
+                </ul>
+
+            </div>
+            <input type="hidden" id="selectedItem" name="selectedItem">
+        </form>
+    </div>
+
+    <script>
+        var selectField = document.getElementById("selectField");
+        var selectText = document.getElementById("selectText");
+        var options = document.getElementsByClassName("options");
+        var list = document.getElementById("list");
+        var arrowIcon = document.getElementById("arrowIcon");
+
+        selectField.onclick = function() {
+            list.classList.toggle("hide");
+            arrowIcon.classList.toggle("rotate");
+        }
+        
+        for(option of options) {
+            option.onclick = function() {
+                selectText.innerHTML = this.textContent;
+                list.classList.toggle("hide");
+                arrowIcon.classList.toggle("rotate");
+            }
+        }
+
+        document.querySelector('.selector-btn-wrapper button').addEventListener('click', function() {
+            var selectedItem = document.getElementById('selectText').textContent.trim(); 
+            document.getElementById('selectedItem').value = selectedItem; 
+        });
+    </script>
+</body>
+
+</html>
