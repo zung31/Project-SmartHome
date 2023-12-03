@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Capteur Ouvert Porte</title>
+    <link rel="stylesheet" href="style9.css">
+</head>
+<body>
+    <h1 id="btn" class="neon">CLOSED</h1>
+
+    <script>
+        var btn = document.getElementById("btn");
+        btn.onclick = function(){
+            if(btn.classList.contains("neon")){
+                btn.classList.remove("neon");
+                btn.innerHTML = "CLOSED";
+            }
+            else{
+                btn.classList.add("neon");
+                btn.innerHTML = "OPEN";
+            }
+        }
+    </script>
+</body>
+</html>
